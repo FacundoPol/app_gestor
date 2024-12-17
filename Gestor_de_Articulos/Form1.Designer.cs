@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxArt = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvPrincipal = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbxArt
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(657, 75);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 220);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.pbxArt.Location = new System.Drawing.Point(799, 75);
+            this.pbxArt.Name = "pbxArt";
+            this.pbxArt.Size = new System.Drawing.Size(254, 220);
+            this.pbxArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxArt.TabIndex = 11;
+            this.pbxArt.TabStop = false;
             // 
             // button4
             // 
@@ -87,15 +88,16 @@
             this.dgvPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrincipal.Location = new System.Drawing.Point(116, 75);
             this.dgvPrincipal.Name = "dgvPrincipal";
-            this.dgvPrincipal.Size = new System.Drawing.Size(518, 220);
+            this.dgvPrincipal.Size = new System.Drawing.Size(647, 220);
             this.dgvPrincipal.TabIndex = 6;
+            this.dgvPrincipal.SelectionChanged += new System.EventHandler(this.dgvPrincipal_SelectionChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 370);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1070, 370);
+            this.Controls.Add(this.pbxArt);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -104,7 +106,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal)).EndInit();
             this.ResumeLayout(false);
 
@@ -112,7 +114,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxArt;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;

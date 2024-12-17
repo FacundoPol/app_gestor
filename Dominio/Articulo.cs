@@ -13,7 +13,7 @@ namespace Dominio
         public string nombreArt { get; set; }
         public string descripcionArt { get; set; }
         public string imgArt { get; set; }
-        public double precio { get; set; }
+        public decimal precio { get; set; }
         public Marca marca { get; set; }
         public Categoria categoria { get; set; }
     }

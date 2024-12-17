@@ -16,20 +16,21 @@ namespace Negocio
             Conexion c = new Conexion();
             try
             {
-                c.SetearConsulta("select Codigo,Nombre,Descripcion,ImagenUrl,Precio FROM ARTICULOS");
+                c.SetearConsulta("select Codigo,Nombre,A.Descripcion,ImagenUrl,Precio,M.Descripcion as marca,C.Descripcion as categoria FROM ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id AND A.IdCategoria = C.Id");
                 c.EjecutarLectura();
 
                 while (c.Lector.Read())
                 {
-                    Categoria categoria = new Categoria();
-                    Marca marca = new Marca();
                     Articulo art = new Articulo();
                     art.codigoArt = (string)c.Lector["Codigo"];
                     art.nombreArt = (string)c.Lector["Nombre"];
                     art.descripcionArt = (string)c.Lector["Descripcion"];
                     art.imgArt = (string)c.Lector["ImagenUrl"];
-                    art.precio = (double)c.Lector["Precio"];
-
+                    art.precio = (decimal)c.Lector["Precio"];
+                    art.marca = new Marca();
+                    art.marca.nombreMarca = (string)c.Lector["marca"];
+                    art.categoria = new Categoria();
+                    art.categoria.nombreCategoria = (string)c.Lector["categoria"];
                     lista.Add(art);
                 }
             }
