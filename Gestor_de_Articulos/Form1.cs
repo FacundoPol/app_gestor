@@ -51,10 +51,33 @@ namespace Gestor_de_Articulos
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        //private void button5_Click(object sender, EventArgs e)
+        //{
+        //    List<Articulo> listfilt;
+        //    string nombusq= tbxfilt.Text;
+        //    if (nombusq != "")
+        //    {
+        //        listfilt = Art.FindAll(x => x.nombreArt.ToUpper().Contains(nombusq.ToUpper()) || x.descripcionArt.ToUpper().Contains(nombusq.ToUpper()) || x.categoria.nombreCategoria.ToUpper().Contains(nombusq.ToUpper()) || x.marca.nombreMarca.ToUpper().Contains(nombusq.ToUpper()));
+        //        dgvPrincipal.DataSource = null;
+        //        dgvPrincipal.DataSource = listfilt;
+        //        ocultar_info();
+        //    }
+        //    else
+        //    {
+        //        dgvPrincipal.DataSource = Art;
+        //        ocultar_info();
+        //    }
+        //}
+
+        private void ocultar_info()
+        {
+            dgvPrincipal.Columns["imgArt"].Visible = false;
+        }
+
+        private void tbxfilt_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listfilt;
-            string nombusq= tbxfilt.Text;
+            string nombusq = tbxfilt.Text;
             if (nombusq != "")
             {
                 listfilt = Art.FindAll(x => x.nombreArt.ToUpper().Contains(nombusq.ToUpper()) || x.descripcionArt.ToUpper().Contains(nombusq.ToUpper()) || x.categoria.nombreCategoria.ToUpper().Contains(nombusq.ToUpper()) || x.marca.nombreMarca.ToUpper().Contains(nombusq.ToUpper()));
@@ -67,11 +90,6 @@ namespace Gestor_de_Articulos
                 dgvPrincipal.DataSource = Art;
                 ocultar_info();
             }
-        }
-
-        private void ocultar_info()
-        {
-            dgvPrincipal.Columns["imgArt"].Visible = false;
         }
     }
 }
