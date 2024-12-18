@@ -78,7 +78,7 @@ namespace Gestor_de_Articulos
         {
             List<Articulo> listfilt;
             string nombusq = tbxfilt.Text;
-            if (nombusq != "")
+            if (nombusq.Length != 0)
             {
                 listfilt = Art.FindAll(x => x.nombreArt.ToUpper().Contains(nombusq.ToUpper()) || x.descripcionArt.ToUpper().Contains(nombusq.ToUpper()) || x.categoria.nombreCategoria.ToUpper().Contains(nombusq.ToUpper()) || x.marca.nombreMarca.ToUpper().Contains(nombusq.ToUpper()));
                 dgvPrincipal.DataSource = null;
