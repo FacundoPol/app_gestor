@@ -5,6 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+<<<<<<< HEAD
+=======
+using System.Security.Policy;
+>>>>>>> 91bdecf (actualizacion)
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +29,11 @@ namespace Gestor_de_Articulos
         private void Form1_Load(object sender, EventArgs e)
         {
             Cargar();
+<<<<<<< HEAD
+=======
+            cbxTipo.Items.Add("MARCA");
+            cbxTipo.Items.Add("CATEGORIA");
+>>>>>>> 91bdecf (actualizacion)
         }
 
         private void Cargar()
@@ -91,5 +100,46 @@ namespace Gestor_de_Articulos
                 ocultar_info();
             }
         }
+<<<<<<< HEAD
+=======
+
+        private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = cbxTipo.SelectedItem.ToString();
+            if (seleccion == "MARCA")
+            {
+                cbxOpcion.Items.Clear();
+                cbxOpcion.Items.Add("Sony");
+                cbxOpcion.Items.Add("Samsung");
+                cbxOpcion.Items.Add("Motorola");
+                cbxOpcion.Items.Add("Apple");
+                cbxOpcion.Items.Add("Huawei");
+            }
+            else
+            {
+                cbxOpcion.Items.Clear();
+                cbxOpcion.Items.Add("Celulares");
+                cbxOpcion.Items.Add("Televisores");
+                cbxOpcion.Items.Add("Media");
+                cbxOpcion.Items.Add("Audio");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string categoria = cbxTipo.SelectedItem.ToString();
+            string tipo = cbxOpcion.SelectedItem.ToString();
+            try
+            {
+                Conexion2 conect = new Conexion2();
+                dgvPrincipal.DataSource = conect.filtro_cbd(categoria, tipo);
+                ocultar_info();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+>>>>>>> 91bdecf (actualizacion)
     }
 }
