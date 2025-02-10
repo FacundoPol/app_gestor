@@ -1,8 +1,5 @@
 ﻿using System;
-<<<<<<< HEAD
-=======
 using System.Collections;
->>>>>>> 91bdecf (actualizacion)
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,8 +47,6 @@ namespace Negocio
 
             return lista;
         }
-<<<<<<< HEAD
-=======
 
         public List<Articulo> filtro_cbd(string seleccion1,string seleccion2)
         {
@@ -101,6 +96,5 @@ namespace Negocio
 
             return lista;
         }
->>>>>>> 91bdecf (actualizacion)
     }
 }
