@@ -5,10 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-<<<<<<< HEAD
-=======
 using System.Security.Policy;
->>>>>>> 91bdecf (actualizacion)
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,11 +26,8 @@ namespace Gestor_de_Articulos
         private void Form1_Load(object sender, EventArgs e)
         {
             Cargar();
-<<<<<<< HEAD
-=======
             cbxTipo.Items.Add("MARCA");
             cbxTipo.Items.Add("CATEGORIA");
->>>>>>> 91bdecf (actualizacion)
         }
 
         private void Cargar()
@@ -100,9 +94,6 @@ namespace Gestor_de_Articulos
                 ocultar_info();
             }
         }
-<<<<<<< HEAD
-=======
-
         private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             string seleccion = cbxTipo.SelectedItem.ToString();
@@ -140,6 +131,6 @@ namespace Gestor_de_Articulos
                 MessageBox.Show(ex.ToString());
             }
         }
->>>>>>> 91bdecf (actualizacion)
+
     }
 }

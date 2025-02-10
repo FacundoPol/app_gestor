@@ -11,10 +11,6 @@ namespace Dominio
     {
         public int idMarca;
         public string nombreMarca;
-<<<<<<< HEAD
-
-=======
->>>>>>> 91bdecf (actualizacion)
         public override string ToString()
         {
             return nombreMarca;
