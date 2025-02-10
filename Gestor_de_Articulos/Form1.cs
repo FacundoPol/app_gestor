@@ -131,6 +131,5 @@ namespace Gestor_de_Articulos
                 MessageBox.Show(ex.ToString());
             }
         }
-
     }
 }

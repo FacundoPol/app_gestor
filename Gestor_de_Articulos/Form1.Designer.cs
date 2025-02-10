@@ -36,7 +36,9 @@
             this.dgvPrincipal = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxfilt = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxTipo = new System.Windows.Forms.ComboBox();
+            this.cbxOpcion = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +46,7 @@
             // pbxArt
             // 
             this.pbxArt.Location = new System.Drawing.Point(1065, 92);
-            this.pbxArt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbxArt.Margin = new System.Windows.Forms.Padding(4);
             this.pbxArt.Name = "pbxArt";
             this.pbxArt.Size = new System.Drawing.Size(339, 271);
             this.pbxArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -54,7 +56,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(17, 305);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 28);
             this.button4.TabIndex = 10;
@@ -64,7 +66,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(17, 241);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 9;
@@ -74,7 +76,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(17, 175);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 8;
@@ -84,7 +86,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(17, 110);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 7;
@@ -95,7 +97,7 @@
             // 
             this.dgvPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrincipal.Location = new System.Drawing.Point(155, 92);
-            this.dgvPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPrincipal.Name = "dgvPrincipal";
             this.dgvPrincipal.RowHeadersWidth = 51;
             this.dgvPrincipal.Size = new System.Drawing.Size(863, 271);
@@ -115,26 +117,47 @@
             // tbxfilt
             // 
             this.tbxfilt.Location = new System.Drawing.Point(304, 43);
-            this.tbxfilt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxfilt.Margin = new System.Windows.Forms.Padding(4);
             this.tbxfilt.Name = "tbxfilt";
             this.tbxfilt.Size = new System.Drawing.Size(356, 22);
             this.tbxfilt.TabIndex = 13;
             this.tbxfilt.TextChanged += new System.EventHandler(this.tbxfilt_TextChanged);
             // 
-            // comboBox1
+            // cbxTipo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(761, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 14;
+            this.cbxTipo.FormattingEnabled = true;
+            this.cbxTipo.Location = new System.Drawing.Point(748, 47);
+            this.cbxTipo.Name = "cbxTipo";
+            this.cbxTipo.Size = new System.Drawing.Size(121, 24);
+            this.cbxTipo.TabIndex = 14;
+            this.cbxTipo.SelectedIndexChanged += new System.EventHandler(this.cbxTipo_SelectedIndexChanged);
+            // 
+            // cbxOpcion
+            // 
+            this.cbxOpcion.FormattingEnabled = true;
+            this.cbxOpcion.Location = new System.Drawing.Point(966, 43);
+            this.cbxOpcion.Name = "cbxOpcion";
+            this.cbxOpcion.Size = new System.Drawing.Size(121, 24);
+            this.cbxOpcion.TabIndex = 15;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1175, 43);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Buscar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1427, 455);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.cbxOpcion);
+            this.Controls.Add(this.cbxTipo);
             this.Controls.Add(this.tbxfilt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbxArt);
@@ -143,7 +166,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvPrincipal);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -164,10 +187,7 @@
         private System.Windows.Forms.DataGridView dgvPrincipal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxfilt;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox cbxTipo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxOpcion;
         private System.Windows.Forms.Button button5;
     }
