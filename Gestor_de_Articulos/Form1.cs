@@ -99,20 +99,13 @@ namespace Gestor_de_Articulos
             string seleccion = cbxTipo.SelectedItem.ToString();
             if (seleccion == "MARCA")
             {
-                cbxOpcion.Items.Clear();
-                cbxOpcion.Items.Add("Sony");
-                cbxOpcion.Items.Add("Samsung");
-                cbxOpcion.Items.Add("Motorola");
-                cbxOpcion.Items.Add("Apple");
-                cbxOpcion.Items.Add("Huawei");
+                Marcas marc = new Marcas();
+                cbxOpcion.DataSource = marc.listarMarc();
             }
             else
             {
-                cbxOpcion.Items.Clear();
-                cbxOpcion.Items.Add("Celulares");
-                cbxOpcion.Items.Add("Televisores");
-                cbxOpcion.Items.Add("Media");
-                cbxOpcion.Items.Add("Audio");
+                Categorias cat = new Categorias();
+                cbxOpcion.DataSource = cat.listarCat();
             }
         }
 
@@ -130,6 +123,13 @@ namespace Gestor_de_Articulos
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAgregar agregar = new frmAgregar();
+            agregar.ShowDialog();
+            Cargar();
         }
     }
 }

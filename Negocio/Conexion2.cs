@@ -27,7 +27,7 @@ namespace Negocio
                     art.nombreArt = (string)c.Lector["Nombre"];
                     art.descripcionArt = (string)c.Lector["Descripcion"];
                     art.imgArt = (string)c.Lector["ImagenUrl"];
-                    art.precio = (decimal)c.Lector["Precio"];
+                    art.precio = Math.Round((decimal)c.Lector["Precio"]);
                     art.marca = new Marca();
                     art.marca.nombreMarca = (string)c.Lector["marca"];
                     art.categoria = new Categoria();
@@ -95,6 +95,26 @@ namespace Negocio
             }
 
             return lista;
+        }
+
+        public void AgregarArt(Articulo art)
+        {
+            Conexion conex = new Conexion();
+            try
+            {
+                conex.SetearConsulta("INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,Precio,IdCategoria,IdMarca,ImagenUrl) VALUES ('" + art.codigoArt + "','" + art.nombreArt + "','" + art.descripcionArt +"'," +art.precio + ",@idCat,@idMarc,'" + art.imgArt + "')");
+                conex.SetearParametro("@idCat",art.categoria.idCategoria);
+                conex.SetearParametro("@idMarc",art.marca.idMarca);
+                conex.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conex.CerraConexion();
+            }
         }
     }
 }
