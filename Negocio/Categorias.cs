@@ -21,7 +21,7 @@ namespace Negocio
                 while (conexion.Lector.Read())
                 {
                     Categoria cat = new Categoria();
-                    cat.idCategoria = (int)conexion.Lector["id"];
+                    cat.idCategoria = (int)conexion.Lector["Id"];
                     cat.nombreCategoria = (string)conexion.Lector["Descripcion"];
                     listcat.Add(cat);
                 }

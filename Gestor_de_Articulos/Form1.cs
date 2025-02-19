@@ -75,6 +75,7 @@ namespace Gestor_de_Articulos
         private void ocultar_info()
         {
             dgvPrincipal.Columns["imgArt"].Visible = false;
+            dgvPrincipal.Columns["idArt"].Visible = false;
         }
 
         private void tbxfilt_TextChanged(object sender, EventArgs e)
@@ -129,6 +130,15 @@ namespace Gestor_de_Articulos
         {
             frmAgregar agregar = new frmAgregar();
             agregar.ShowDialog();
+            Cargar();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = new Articulo();
+            seleccionado = (Articulo)dgvPrincipal.CurrentRow.DataBoundItem;
+            frmAgregar modificar = new frmAgregar(seleccionado);
+            modificar.ShowDialog();
             Cargar();
         }
     }

@@ -15,7 +15,13 @@ namespace Gestor_de_Articulos
 {
     public partial class frmAgregar : Form
     {
-        Articulo articulo = null;
+        private Articulo articulo = null;
+
+        public frmAgregar(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+        }
         public frmAgregar()
         {
             InitializeComponent();
@@ -31,7 +37,8 @@ namespace Gestor_de_Articulos
             Conexion2 conect = new Conexion2();
             try
             {
-                articulo = new Articulo();
+                if(articulo == null)
+                    articulo = new Articulo();
                 articulo.codigoArt = txtCod.Text;
                 articulo.nombreArt = txtNomb.Text;
                 articulo.descripcionArt = txtDesc.Text;
@@ -40,7 +47,16 @@ namespace Gestor_de_Articulos
                 articulo.marca = (Marca)cbxMarc.SelectedItem;
                 articulo.imgArt = txtUrl.Text;
 
-                conect.AgregarArt(articulo);
+                if (articulo.idArt == 0)
+                {
+                    conect.AgregarArt(articulo);
+                    MessageBox.Show("AGREGADO EXITOSAMENTE");
+                }
+                else
+                {
+                    conect.ModificarArt(articulo);
+                    MessageBox.Show("MODIFICADO EXITOSAMENTE");
+                }
             }
             catch (Exception ex)
             {
@@ -58,16 +74,26 @@ namespace Gestor_de_Articulos
             try
             {
                 Categorias cat = new Categorias();
-                cbxCat.Items.Clear();
                 cbxCat.DataSource = cat.listarCat();
-                //cbxCat.DisplayMember = "nombreCategoria";
-                //cbxCat.ValueMember = "idCategoria";
+                cbxCat.ValueMember = "idCategoria";  // Debe coincidir con la clase
+                cbxCat.DisplayMember = "nombreCategoria";
 
                 Marcas marc = new Marcas();
-                cbxMarc.Items.Clear();
                 cbxMarc.DataSource = marc.listarMarc();
-                //cbxMarc.DisplayMember = "nombreMarca";
-                //cbxMarc.ValueMember = "idMarca";
+                cbxMarc.ValueMember = "idMarca";
+                cbxMarc.DisplayMember = "nombreMarca";
+
+                if (articulo != null)
+                {
+                    txtCod.Text=articulo.codigoArt;
+                    txtNomb.Text=articulo.nombreArt;
+                    txtDesc.Text=articulo.descripcionArt;
+                    txtPrecio.Text = articulo.precio.ToString();
+                    txtUrl.Text = articulo.imgArt;
+                    CargarImg(articulo.imgArt);
+                    cbxMarc.SelectedValue = articulo.marca.idMarca;
+                    cbxCat.SelectedValue = articulo.categoria.idCategoria;
+                }
 
                 }
             catch (Exception ex)
