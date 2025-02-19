@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -147,5 +148,27 @@ namespace Negocio
             }
         }
 
+
+        public void EliminarArt(int id)
+        {
+            Conexion conexion = new Conexion();
+            try
+            {
+                conexion.SetearConsulta("DELETE FROM ARTICULOS WHERE Id = @id");
+                conexion.SetearParametro("@id",id);
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.CerraConexion();
+            }
+            
+
+        }
     }
 }

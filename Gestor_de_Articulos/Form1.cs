@@ -141,5 +141,22 @@ namespace Gestor_de_Articulos
             modificar.ShowDialog();
             Cargar();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = new Articulo();
+            seleccionado = (Articulo)dgvPrincipal.CurrentRow.DataBoundItem;
+            DialogResult resultado = MessageBox.Show("¿ESTAS SEGURO DE ELIMINAR ESTE REGISTRO?","ELIMINAR",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if (resultado == DialogResult.Yes)
+            {
+                Conexion2 conexion = new Conexion2();
+                conexion.EliminarArt(seleccionado.idArt);
+                MessageBox.Show("ELIMINADO EXITOSAMENTE");
+            }
+            else
+                MessageBox.Show("NO HA SIDO ELIMINADO");
+
+            Cargar();
+        }
     }
 }
