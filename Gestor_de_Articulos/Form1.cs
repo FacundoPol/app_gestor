@@ -158,5 +158,13 @@ namespace Gestor_de_Articulos
 
             Cargar();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = new Articulo();
+            seleccionado = (Articulo)dgvPrincipal.CurrentRow.DataBoundItem;
+            frmDetalles detalles = new frmDetalles(seleccionado);
+            detalles.ShowDialog();
+        }
     }
 }
